@@ -1,34 +1,35 @@
 import axios from "axios";
 
-// The getRecipes method retrieves recipes from the server
+// The getLocations method retrieves recipes from the server
 // It accepts a "query" or term to search the recipe api for
 export default {
-  getRecipes: function(query, query2) {
+  getYelpLocations: function(query, query2) {
     console.log("this isthe API log ", query, query2)
-    return axios.get("/api/hello", {  params: {location:query, term: query2 }} );
+    return axios.get("/locations/hello", {  params: {location:query, term: query2 }} );
   },
     // Gets all articles
-    getBooks: function() {
-      return axios.get("/api/hello");
+    getLocations: function() {
+      return axios.get("/locations");
     },
     // Gets the book with the given id
-    getBook: function(id) {
-      return axios.get("/api/articles/" + id);
+    getLocation: function(id) {
+      console.log(id);
+      return axios.get("/locations/" + id);
     },
     // Deletes the book with the given id
-    deleteBook: function(id) {
-      return axios.delete("/api/articles/" + id);
+    deleteLocation: function(id) {
+      return axios.delete("/locations/" + id);
     },
     // Saves a book to the database
-    saveBook: function(bookData) {
+    saveLocation: function(bookData) {
       console.log("mas huevos", bookData)
-      return axios.post("/api/articles", bookData);
+      return axios.post("/locations", bookData);
     }
 };
 
 
 // export default {
-//   getRecipes: function(query) {
+//   getLocations: function(query) {
 //     return axios.get("/api/recipes", { params: {
 //       term: 'bar',
 //       location: 'los angeles,ca'
